@@ -1,0 +1,957 @@
+{
+  "schema_version": 1,
+  "name": "Plains",
+  "description": "No description provided",
+  "source_url": false,
+  "guid": "4dd07c4edf5c3ac3d3848326f700a59f",
+  "tag_fg_color": "#ffffff",
+  "tag_bg_color": "#c60000",
+  "icon": "eye",
+  "exported_at": "2018-01-11T18:43:58Z",
+  "agents": [
+    {
+      "type": "Agents::PostAgent",
+      "name": "#southdakota_forum",
+      "disabled": false,
+      "guid": "018f58ac0b895f0abf771b973ff6a873",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/356983086346403840/Bbp7vtg3Ih7Vi3ZgZ6A3X1HS66sHqh4b8VITf29ro70xrHMpz0755U_mtPaU7GrwN_ZI",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "username": "{{authors}}",
+          "embeds": [
+            {
+              "title": ":newspaper: {{title}}",
+              "url": "{{url}}",
+              "footer": {
+                "text": "{{ date_published | date: \"%s\" | date: \"%B %d, %Y at %l:%M %p \" }}"
+              }
+            }
+          ]
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 7776000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::RssAgent",
+      "name": "Nebraska Forum",
+      "disabled": false,
+      "guid": "02512d0daf01249e14da93ebb1a973b3",
+      "options": {
+        "expected_update_period_in_days": "5",
+        "clean": "false",
+        "url": "https://www.waze.com/forum/feed.php?f=634"
+      },
+      "schedule": "every_10m",
+      "keep_events_for": 7776000
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#nebraska_closures",
+      "disabled": false,
+      "guid": "0a910d1cb41de8cf532a6de97e681749",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355743128139071499/Ga_jbQT9M7LDBJVwZ79C1hvfB7o7XLfUw5W4ZV3rN6g_xlWW-KMGmkz5EJ0_tUbeAF5O",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "`{{full_text}}` {% line_break %} https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "false",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::RssAgent",
+      "name": "Kansas Forum",
+      "disabled": false,
+      "guid": "0be214a702c2b91bb162dd82506b0d8e",
+      "options": {
+        "expected_update_period_in_days": "5",
+        "clean": "false",
+        "url": "https://www.waze.com/forum/feed.php?f=628"
+      },
+      "schedule": "every_10m",
+      "keep_events_for": 7776000
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#iowa_openings",
+      "disabled": false,
+      "guid": "0fbd80f9b16af95d747e8ca5bed9bf0e",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355746192400973824/jIaBcEAOYZRzFIj4FYZKoD7iR8BHlfC6seh8HtPcX8H1OplBiVOPhKO7_sx3mFDpAc2-",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "false",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": false
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#minnesota_closures",
+      "disabled": false,
+      "guid": "118b5442f67325866de601df708524f2",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355770364871049216/i_wEk5DHTQbHIyPIPDUxBTUlXyKGtc9GIt_gO6mk5IX0Y9sa4ikhddb-PUCIGDsi7F0Z",
+        "expected_receive_period_in_days": "1",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "false",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#minnesota_forum",
+      "disabled": false,
+      "guid": "1e15a72720d9e272705dd16d373fee2c",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/356981252877975553/jlf6VGEDlKD-r15pPlMxBIXgAi1n_3AQ_1jFh3ahDj_jm1Zdfkjeh-gx4TJDExCWktNF",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "username": "{{authors}}",
+          "embeds": [
+            {
+              "title": ":newspaper: {{title}}",
+              "url": "{{url}}",
+              "footer": {
+                "text": "{{ date_published | date: \"%s\" | date: \"%B %d, %Y at %l:%M %p \" }}"
+              }
+            }
+          ]
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 7776000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#northdakota_closures",
+      "disabled": false,
+      "guid": "1e65002b7681dc7b1f7451d3dcdfd22d",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/358093852982116355/c6Pe-SvXUzcyJq18dZiLqIgfX7UFe5Hs6tnWKzP2n7nR3SBomri9tUFlB0KpURVUJSrB",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::RssAgent",
+      "name": "Iowa Forum",
+      "disabled": false,
+      "guid": "1fffb5c20fed8d5e0901c85af0c832a4",
+      "options": {
+        "expected_update_period_in_days": "5",
+        "clean": "false",
+        "url": "https://www.waze.com/forum/feed.php?f=632"
+      },
+      "schedule": "every_10m",
+      "keep_events_for": 7776000
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#iowa_forum",
+      "disabled": false,
+      "guid": "230fda805f504672770157cd750f9db0",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/356980154167459840/mU-1_Oqq-shs_djpQjHti-za-hWyqWuSLqQBVhgw-eFh06FCEnbgBn-LxJgfW0-WyJGB",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "username": "{{authors}}",
+          "embeds": [
+            {
+              "title": ":newspaper: {{title}}",
+              "url": "{{url}}",
+              "footer": {
+                "text": "{{ date_published | date: \"%s\" | date: \"%B %d, %Y at %l:%M %p \" }}"
+              }
+            }
+          ]
+        },
+        "emit_events": "false",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 7776000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#north-dakota_weather",
+      "disabled": false,
+      "guid": "26e5a8ca9977bc5c228d162dacfa3f83",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/387356230286573569/yAhxMQfWWiDFQLteXrLtglANV437guSVzBQeuXpqAfRPavlcVkeqvOV3kxQFMuPzUtje",
+        "expected_receive_period_in_days": "15",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user\"screen_name\"}}/status/{{id}}",
+          "username": "{{user\"name\"}}",
+          "avatar_url": "{{user\"profile_image_url\"}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#northdakota_forum",
+      "disabled": false,
+      "guid": "279c2900a934c41f956418be02f680af",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/356982701699629057/EKFlkSa1fMNlocaoUBUmJ3lvrnLs3WeS1xoobiQpOuBIaSBngdjbDP0cY5RZPs4o7Qgv",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "username": "{{authors}}",
+          "embeds": [
+            {
+              "title": ":newspaper: {{title}}",
+              "url": "{{url}}",
+              "footer": {
+                "text": "{{ date_published | date: \"%s\" | date: \"%B %d, %Y at %l:%M %p \" }}"
+              }
+            }
+          ]
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 7776000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::RssAgent",
+      "name": "North Dakota Forum",
+      "disabled": false,
+      "guid": "2999ad4ff1a8869d8564dc53ebdf6681",
+      "options": {
+        "expected_update_period_in_days": "5",
+        "clean": "false",
+        "url": "https://www.waze.com/forum/feed.php?f=624"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 7776000
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Missouri Closures",
+      "disabled": false,
+      "guid": "2aa3293707785a1ceb9065cd9b6fbf1a",
+      "options": {
+        "search": "list:bretmcvey/mo-closure-tracking blocked OR closed OR closing OR closure OR “shut down” OR shutdown OR fire -center -curb -inside -intermittent -left -outside -partially -remarks -right -shoulder -“lane blocked” -office -offices",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::RssAgent",
+      "name": "Missouri Forum",
+      "disabled": false,
+      "guid": "3303b51193d96108b1301ff8020269de",
+      "options": {
+        "expected_update_period_in_days": "5",
+        "clean": "false",
+        "url": "https://www.waze.com/forum/feed.php?f=414"
+      },
+      "schedule": "every_10m",
+      "keep_events_for": 7776000
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#missouri_openings",
+      "disabled": false,
+      "guid": "336902feebdfd75490f40cf85fb511ea",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355793119045877760/-MODnH_GkAMDGHoi2BlvQ9gaKzQLSNVAqlnTrPY5hP0MBqp29scJ7v2o7W-riIXee-EL",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#kansas_openings",
+      "disabled": false,
+      "guid": "3f82c9a85706eeee130d6330b0c54e50",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355875481339428875/OmAo5dFghmrvHyLAtcvbTbZfmylkeOjXIdlpcOIrS3XCDT6Z1cJEm4tnySOQu3JbLLA4",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::RssAgent",
+      "name": "Minnesota Forum",
+      "disabled": false,
+      "guid": "47f2cc8abe73b2020ae1e8a348283036",
+      "options": {
+        "expected_update_period_in_days": "5",
+        "clean": "false",
+        "url": "https://www.waze.com/forum/feed.php?f=259"
+      },
+      "schedule": "every_10m",
+      "keep_events_for": 7776000
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Nebraska Closures",
+      "disabled": false,
+      "guid": "4a9d79f8a40aae853e4eb15c548eb727",
+      "options": {
+        "search": "list:bretmcvey/ne-closure-tracking blocked OR closed OR closing OR closure OR “shut down” OR “shutdown” OR fire -center -curb -inside -intermittent -left -outside -partially -remarks -right -shoulder -“lane blocked” -office -offices -door -doors -store -stores -government",
+        "expected_update_period_in_days": "5"
+      },
+      "schedule": "every_2m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Missouri Openings",
+      "disabled": false,
+      "guid": "4cef09cbf7ce51c1f3072984a36dbc66",
+      "options": {
+        "search": "list:bretmcvey/mo-closure-tracking ended OR ending OR open OR opened OR opening OR re-open OR re-opened OR reopened OR reopening -“open house”",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#kansas_closures",
+      "disabled": false,
+      "guid": "618fdb17df0e83b0705368e751436e6d",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355874979172188160/riPhUquMP8YG_1gM1lLCEJfy7jcrsZtDRSJQ7f8QOFWojXagHOFpastb7gl5EZQ0bobs",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Kansas Openings",
+      "disabled": false,
+      "guid": "635f489800e5e045f5eb5fddcdc13329",
+      "options": {
+        "search": "list:bretmcvey/ks-closure-tracking ended OR ending OR open OR opened OR opening OR re-open OR re-opened OR reopened OR reopening -“open house”",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#kansas_forum",
+      "disabled": false,
+      "guid": "79174da6c277c5d4d30f1ac2a0a7739d",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/356980799788285954/IGob460EFeWZ9FnhcuX-90PDzP1_Tys37YwWRsS7zAQ4VBTDkiRoZ6jOtRqrxWjWbTx1",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "username": "{{authors}}",
+          "embeds": [
+            {
+              "title": ":newspaper: {{title}}",
+              "url": "{{url}}",
+              "footer": {
+                "text": "{{ date_published | date: \"%s\" | date: \"%B %d, %Y at %l:%M %p \" }}"
+              }
+            }
+          ]
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 7776000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#northdakota_openings",
+      "disabled": false,
+      "guid": "7d4fca69a00aa1b6a4d9935893e43a76",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/358093999204073473/ch7mYyMhAZIfoU7pzpZA5h7h6wybwrnwCk3p4VmL4f-tAb-CGi75wVHXvV7ecCpy1s5B",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#south-dakota_weather",
+      "disabled": false,
+      "guid": "82b3f9c9d3d81a3f9b06ac0b18f3439d",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/387359045469601797/JGX0Yz8SyRWRPoR6pmmTiq2t_JeJ7UTempAkYqFLmr2SKYQNHLLirjg409cSEc281vbk",
+        "expected_receive_period_in_days": "15",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user\"screen_name\"}}/status/{{id}}",
+          "username": "{{user\"name\"}}",
+          "avatar_url": "{{user\"profile_image_url\"}}"
+        },
+        "emit_events": "false",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Kansas Closures",
+      "disabled": false,
+      "guid": "894d0fb9cd18a0b1b1dfc98aeb321c13",
+      "options": {
+        "search": "list:bretmcvey/ks-closure-tracking blocked OR closed OR closing OR closure OR “shut down” OR shutdown OR fire -center -curb -inside -intermittent -left -outside -partially -remarks -right -shoulder -“lane blocked” -office -offices",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Minnesota Closures",
+      "disabled": false,
+      "guid": "8a565b0e152795bcece757e0ac32d944",
+      "options": {
+        "search": "list:bretmcvey/mn-closure-tracking blocked OR closed OR closing OR closure OR “shut down” OR shutdown OR fire -center -curb -inside -intermittent -left -outside -partially -remarks -right -shoulder -“lane blocked” -office -offices",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Iowa Closures",
+      "disabled": false,
+      "guid": "a3a5001581f52de31199e2f88ef7706b",
+      "options": {
+        "search": "list:bretmcvey/ia-closure-tracking blocked OR closed OR closing OR closure OR “shut down” OR shutdown OR fire -center -curb -inside -intermittent -left -outside -partially -remarks -right -shoulder -“lane blocked” -office -offices -filter:replies exclude:retweets",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Minnesota Openings",
+      "disabled": false,
+      "guid": "a6fb8c324096c279c0b1c6c0c909179c",
+      "options": {
+        "search": "list:bretmcvey/mn-closure-tracking ended OR ending OR open OR opened OR opening OR re-open OR re-opened OR reopened OR reopening -“open house”",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Nebraska Openings",
+      "disabled": false,
+      "guid": "a863c8e9f2ffba913bdc564b78463ffc",
+      "options": {
+        "search": "list:bretmcvey/ne-closure-tracking ended OR ending OR open OR opened OR opening OR re-open OR re-opened OR reopened OR reopening -“open house” -door -doors -store -stores",
+        "expected_update_period_in_days": "5"
+      },
+      "schedule": "every_2m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#iowa_closures",
+      "disabled": false,
+      "guid": "ae05d0c808226ae8b2df4a76a7efe6a0",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355746114693103616/KkYv4FNg2_ZRT-x33Cn3VYWrGzOugpZJ1uOIdtTI2e3k9OBW-K1dl8qQzRklMFKOunFg",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "false",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": false
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#southdakota_openings",
+      "disabled": false,
+      "guid": "b7f97d32e49d9f282840e4fc0d72b72e",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/358097275312013312/fbJlC1qdBqR5pjqZR3G2RxZ9ozRPK0hpLxFH0pqVe1BqSjJWKxovTM7_YYulBPWLlkLm",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#southdakota_closures",
+      "disabled": false,
+      "guid": "bb2334317dd058e734537052a592c6c5",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/358097220131618816/0u-JU4qwCSr3eMMN96E0PspdzrCrC7V8V3E9z1NRu7olnWSqlqAKNT_c5WbPYR3zk0OB",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "false",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "South Dakota Openings",
+      "disabled": false,
+      "guid": "c1d5eda432e4dfa8a8f191901aa2751c",
+      "options": {
+        "search": "list:bretmcvey/sd-closure-tracking ended OR ending OR open OR opened OR opening OR re-open OR re-opened OR reopened OR reopening -“open house”",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "Iowa Openings",
+      "disabled": false,
+      "guid": "ca5225b5e59fe5d5517074138e391988",
+      "options": {
+        "search": "list:bretmcvey/ia-closure-tracking ended OR ending OR open OR opened OR opening OR re-open OR re-opened OR reopened OR reopening -“open house” -filter:replies exclude:retweets",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "SD Weather Feeds",
+      "disabled": false,
+      "guid": "ce3efdc57c3de48a4c2a734f09246218",
+      "options": {
+        "search": "list:waze_omaha/sd-weather-feeds advisory OR closed OR closure OR blocked OR warning OR severe OR danger OR dangerous OR open OR opened -filter:replies exclude:retweets",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_10m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "South Dakota Closures",
+      "disabled": false,
+      "guid": "d04c891c678333fc679ed76eec764931",
+      "options": {
+        "search": "list:bretmcvey/sd-closure-tracking blocked OR closed OR closing OR closure OR “shut down” OR shutdown OR fire -center -curb -inside -intermittent -left -outside -partially -remarks -right -shoulder -“lane blocked“ -office -offices",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#missouri_closures",
+      "disabled": false,
+      "guid": "df77fe7514108aadf31560e609dfc86d",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355792738345680897/VbjlJRdtZfQDkQ5-6LxEiSYx94v7BegmXvpzqff-Yv9TK5I1hoKRrgteDFWS-ENaaYz8",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "North Dakota Openings",
+      "disabled": false,
+      "guid": "e2c0289d1edaa3b4cee026cbfed225bb",
+      "options": {
+        "search": "list:bretmcvey/nd-closure-tracking ended OR ending OR open OR opened OR opening OR re-open OR re-opened OR reopened OR reopening -“open house”",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#nebraska_forum",
+      "disabled": false,
+      "guid": "e5e93d802b4471f4ca9654f3d60f0f1f",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/356982335666651137/hWL-KI8xHX6hLxCOQvTvbaZ5P5fwhdVMH5Ea8TkpsHlk-_1QUWI1u3QAsd__x3K93cA2",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "username": "{{authors}}",
+          "embeds": [
+            {
+              "title": ":newspaper: {{title}}",
+              "url": "{{url}}",
+              "footer": {
+                "text": "{{ date_published | date: \"%s\" | date: \"%B %d, %Y at %l:%M %p \" }}"
+              }
+            }
+          ]
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 7776000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#minnesota_openings",
+      "disabled": false,
+      "guid": "e675e86ec8b4afd6bf4d5ae120a81d71",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355770438913097739/s_4zehUBqEXt87klpO84W5Y8hrsntpMUoNY8Lu61yZCoiUpqj-8WDZaHyC2qpjXPgwRk",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "ND Weather Feeds",
+      "disabled": false,
+      "guid": "e6b090de96ab9458b43e346a89025321",
+      "options": {
+        "search": "from:NWSBismarck ‏OR from:NWSGrandForks filter:replies exclude:retweets",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_10m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#missouri_forum",
+      "disabled": false,
+      "guid": "e7676198624960145185579268f78dfe",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/356981770907942912/-zkttq8YvrWoxDgpxKE8OCBW9Dy-jcn45t930mT_anrH8GaAgwg23Du7k5kYu3rEr38E",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "username": "{{authors}}",
+          "embeds": [
+            {
+              "title": ":newspaper: {{title}}",
+              "url": "{{url}}",
+              "footer": {
+                "text": "{{ date_published | date: \"%s\" | date: \"%B %d, %Y at %l:%M %p \" }}"
+              }
+            }
+          ]
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 7776000,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::TwitterSearchAgent",
+      "name": "North Dakota Closures",
+      "disabled": false,
+      "guid": "ef2ca9eab5200dd16218c0ff6f3efba0",
+      "options": {
+        "search": "list:bretmcvey/nd-closure-tracking blocked OR closed OR closing OR closure OR “shut down” OR shutdown OR fire -center -curb -inside -intermittent -left -outside -partially -remarks -right -shoulder -“lane blocked” -office -offices",
+        "expected_update_period_in_days": "15"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "#nebraska_openings",
+      "disabled": false,
+      "guid": "f4391c13d19f80506ddc75e19695c2e3",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/355743294367596551/FvJ7UaI0yblIu28NpKdqgnAT3C-9Fq84S3bb73OXig0IbUT_7MI765Kq1DVYLxw4YmnA",
+        "expected_receive_period_in_days": "10",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "`{{full_text}}` {% line_break %} https://twitter.com/{{user.screen_name}}/status/{{id}}",
+          "username": "{{user.name}}"
+        },
+        "emit_events": "false",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 604800,
+      "propagate_immediately": true
+    },
+    {
+      "type": "Agents::RssAgent",
+      "name": "South Dakota Forum",
+      "disabled": false,
+      "guid": "f91d21fbd31f8b08a049802a0802a60a",
+      "options": {
+        "expected_update_period_in_days": "5",
+        "clean": "false",
+        "url": "https://www.waze.com/forum/feed.php?f=626"
+      },
+      "schedule": "every_5m",
+      "keep_events_for": 7776000
+    }
+  ],
+  "links": [
+    {
+      "source": 1,
+      "receiver": 39
+    },
+    {
+      "source": 3,
+      "receiver": 22
+    },
+    {
+      "source": 8,
+      "receiver": 9
+    },
+    {
+      "source": 12,
+      "receiver": 11
+    },
+    {
+      "source": 13,
+      "receiver": 37
+    },
+    {
+      "source": 14,
+      "receiver": 42
+    },
+    {
+      "source": 17,
+      "receiver": 6
+    },
+    {
+      "source": 18,
+      "receiver": 2
+    },
+    {
+      "source": 19,
+      "receiver": 15
+    },
+    {
+      "source": 21,
+      "receiver": 16
+    },
+    {
+      "source": 25,
+      "receiver": 20
+    },
+    {
+      "source": 26,
+      "receiver": 5
+    },
+    {
+      "source": 27,
+      "receiver": 30
+    },
+    {
+      "source": 28,
+      "receiver": 40
+    },
+    {
+      "source": 29,
+      "receiver": 44
+    },
+    {
+      "source": 33,
+      "receiver": 31
+    },
+    {
+      "source": 34,
+      "receiver": 4
+    },
+    {
+      "source": 35,
+      "receiver": 24
+    },
+    {
+      "source": 36,
+      "receiver": 32
+    },
+    {
+      "source": 38,
+      "receiver": 23
+    },
+    {
+      "source": 41,
+      "receiver": 10
+    },
+    {
+      "source": 43,
+      "receiver": 7
+    },
+    {
+      "source": 45,
+      "receiver": 0
+    }
+  ],
+  "control_links": [
+
+  ]
+}
