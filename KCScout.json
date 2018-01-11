@@ -1,32 +1,68 @@
-##KCSCout IMAP Agent
 {
-  "expected_update_period_in_days": "1",
-  "host": "imap.zoho.com",
-  "ssl": true,
-  "username": "{% credential webhook_username %}",
-  "password": "{% credential webhook_password %}",
-  "folders": [
-    "/KCScout"
+  "schema_version": 1,
+  "name": "KCScout",
+  "description": "No description provided",
+  "source_url": false,
+  "guid": "3e8442bf75633d8cab5eaf5b8b7b9749",
+  "tag_fg_color": "#ffffff",
+  "tag_bg_color": "#008040",
+  "icon": "automobile",
+  "exported_at": "2018-01-11T18:49:37Z",
+  "agents": [
+    {
+      "type": "Agents::ImapFolderAgent",
+      "name": "KCScout IMAP",
+      "disabled": false,
+      "guid": "5766385d67b36bfd2d06cd5d16a40570",
+      "options": {
+        "expected_update_period_in_days": "1",
+        "host": "imap.zoho.com",
+        "ssl": true,
+        "username": "{% credential webhook_username %}",
+        "password": "{% credential webhook_password %}",
+        "folders": [
+          "/KCScout"
+        ],
+        "conditions": {
+          "body": "(?i:All lanes closed)"
+        },
+        "mark_as_read": "true"
+      },
+      "schedule": "every_2m",
+      "keep_events_for": 604800
+    },
+    {
+      "type": "Agents::PostAgent",
+      "name": "KCScout Webhook",
+      "disabled": false,
+      "guid": "bf918361a484925cdaa12738a259be6b",
+      "options": {
+        "post_url": "https://discordapp.com/api/webhooks/400748865294172160/d2czK03CVNnP9ta_Vjeq1sF2aFRKi3uWUFn0rho7CuWjmwXVULkZrnvojNFKv4woc70P",
+        "expected_receive_period_in_days": "1",
+        "content_type": "json",
+        "method": "post",
+        "payload": {
+          "content": "{{body | remove: \"~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~\" | remove: \"This message is from www.kcscout.net and is provided as a courtesy of the Kansas and Missouri Departments of Transportation.\" | remove: \"KC Scout web alerts are not intended to be viewed while driving.\" | remove: \"Log on to My KC Scout to make changes to your profile by clicking here: http://www.mykcscout.com/SubLogin.html\" | remove: \"To completely unsubscribe from My KC Scout, you may follow this link:\" | remove: \"http://www.mykcscout.com/Unsubscribe.html?email=webhook@kingnet.us&id=5280&alertType=s\" | remove: \"This message was sent to webhook@kingnet.us\" }}",
+          "username": "{{subject}}"
+        },
+        "headers": {
+        },
+        "emit_events": "true",
+        "no_merge": "true",
+        "output_mode": "clean"
+      },
+      "schedule": "never",
+      "keep_events_for": 0,
+      "propagate_immediately": false
+    }
   ],
-  "conditions": {
-    "body": "(?i:All lanes closed)"
-  },
-  "mark_as_read": "true"
-}
+  "links": [
+    {
+      "source": 0,
+      "receiver": 1
+    }
+  ],
+  "control_links": [
 
-##KCScout Webhook
-{
-  "post_url": "https://discordapp.com/api/webhooks/400748865294172160/d2czK03CVNnP9ta_Vjeq1sF2aFRKi3uWUFn0rho7CuWjmwXVULkZrnvojNFKv4woc70P",
-  "expected_receive_period_in_days": "1",
-  "content_type": "json",
-  "method": "post",
-  "payload": {
-    "content": "{{body | remove: \"~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~\" | remove: \"This message is from www.kcscout.net and is provided as a courtesy of the Kansas and Missouri Departments of Transportation.\" | remove: \"KC Scout web alerts are not intended to be viewed while driving.\" | remove: \"Log on to My KC Scout to make changes to your profile by clicking here: http://www.mykcscout.com/SubLogin.html\" | remove: \"To completely unsubscribe from My KC Scout, you may follow this link:\" | remove: \"http://www.mykcscout.com/Unsubscribe.html?email=webhook@kingnet.us&id=5280&alertType=s\" | remove: \"This message was sent to webhook@kingnet.us\" }}",
-    "username": "{{subject}}"
-  },
-  "headers": {
-  },
-  "emit_events": "true",
-  "no_merge": "true",
-  "output_mode": "clean"
+  ]
 }
